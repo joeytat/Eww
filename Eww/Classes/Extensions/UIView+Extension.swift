@@ -1,6 +1,6 @@
 //
 //  UIView+Extension.swift
-//  AlphaTrion
+//  Eww
 //
 //  Created by Joey on 27/02/2017.
 //  Copyright © 2017 JieJing. All rights reserved.
@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-extension UIView {
-    @IBInspectable var cornerRadius: CGFloat {
+public extension UIView {
+    @IBInspectable public var cornerRadius: CGFloat {
         set {
             layer.masksToBounds = true
             layer.cornerRadius = newValue
@@ -20,7 +20,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var shadowOffset: CGSize {
+    @IBInspectable public var shadowOffset: CGSize {
         set {
             layer.shadowOffset = newValue
             layer.shadowColor = UIColor.white.withAlphaComponent(0.6).cgColor
@@ -32,7 +32,7 @@ extension UIView {
         }
     }
     
-    @IBInspectable var borderColor: UIColor {
+    @IBInspectable public var borderColor: UIColor {
         set {
             layer.borderColor = newValue.cgColor
             layer.borderWidth = 0.5
@@ -43,8 +43,8 @@ extension UIView {
     }
 }
 
-extension UIView{
-    var x: CGFloat {
+public extension UIView{
+    public var x: CGFloat {
         get {
             return frame.origin.x
         }
@@ -53,7 +53,7 @@ extension UIView{
         }
     }
     
-    var y: CGFloat {
+    public var y: CGFloat {
         get {
             return frame.origin.y
         }
@@ -62,7 +62,7 @@ extension UIView{
         }
     }
     
-    var width: CGFloat {
+    public var width: CGFloat {
         get {
             return frame.size.width
         }
@@ -71,7 +71,7 @@ extension UIView{
         }
     }
     
-    var height: CGFloat {
+    public var height: CGFloat {
         get {
             return frame.size.height
         }
@@ -82,10 +82,10 @@ extension UIView{
 }
 
 
-protocol UIViewLoading {}
+public protocol UIViewLoading {}
 extension UIView : UIViewLoading {}
-extension UIViewLoading where Self : UIView {
-    static func loadFromNib() -> Self {
+public extension UIViewLoading where Self : UIView {
+    public static func loadFromNib() -> Self {
         let nibName = "\(self)".characters.split{$0 == "."}.map(String.init).last!
         let nib = UINib(nibName: nibName, bundle: nil)
         return nib.instantiate(withOwner: self, options: nil).first as! Self

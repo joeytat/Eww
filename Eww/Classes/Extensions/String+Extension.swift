@@ -1,6 +1,6 @@
 //
 //  String+Extension.swift
-//  AlphaTrion
+//  Eww
 //
 //  Created by Joey on 07/03/2017.
 //  Copyright © 2017 JieJing. All rights reserved.
@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     
-    func isNumber() -> Bool {
+    public func isNumber() -> Bool {
         let numberCharacters = NSCharacterSet.decimalDigits
         
         return !self.isEmpty && self.rangeOfCharacter(from: numberCharacters) != nil
     }
     
-    func phonetic() -> String {
+    public func phonetic() -> String {
         let mutableString = NSMutableString(string: self)
         // Convert to phonetic
         CFStringTransform(mutableString, nil, kCFStringTransformToLatin, false)
@@ -27,7 +27,7 @@ extension String {
         return mutableString.capitalized
     }
     
-    func plateFormat() -> (province: String, number: String) {
+    public func plateFormat() -> (province: String, number: String) {
         if self.characters.count > 2 {
             let location = substring(to: index(startIndex, offsetBy: 2))
             
@@ -40,12 +40,12 @@ extension String {
         }
     }
     
-    func height(font: UIFont) -> CGFloat {
+    public func height(font: UIFont) -> CGFloat {
         let string = NSString(string: self)
         return string.size(attributes: [NSFontAttributeName : font]).height
     }
     
-    func width(font: UIFont) -> CGFloat {
+    public func width(font: UIFont) -> CGFloat {
         let string = NSString(string: self)
         return string.size(attributes: [NSFontAttributeName : font]).width
     }

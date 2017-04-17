@@ -1,6 +1,6 @@
 //
 //  Color.swift
-//  AlphaTrion
+//  Eww
 //
 //  Created by Joey on 15/02/2017.
 //  Copyright © 2017 JieJing. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum Color {
+public enum Color {
     case primary
     case darkPrimary
     case accentOrange
@@ -23,8 +23,8 @@ enum Color {
     case background
 }
 
-extension UIColor {
-    var disable: UIColor {
+public extension UIColor {
+    public var disable: UIColor {
         return self.withAlphaComponent(0.7)
     }
 }

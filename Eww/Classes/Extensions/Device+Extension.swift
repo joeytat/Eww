@@ -1,6 +1,6 @@
 //
 //  Sound+Extension.swift
-//  AlphaTrion
+//  Eww
 //
 //  Created by Joey on 29/03/2017.
 //  Copyright © 2017 JieJing. All rights reserved.
@@ -10,8 +10,8 @@ import Foundation
 import AudioUnit
 import AVFoundation
 
-struct Device {
-    static func playSound(_ filename: String, type: String? = nil) {
+public struct Device {
+    public static func playSound(_ filename: String, type: String? = nil) {
         guard let filePath = Bundle.main.path(forResource: filename, ofType: type)
             else { return }
         let url = NSURL(fileURLWithPath: filePath)
@@ -20,7 +20,7 @@ struct Device {
         AudioServicesPlayAlertSound(soundId)
     }
     
-    static func flashlight(_ isOn: Bool) {
+    public static func flashlight(_ isOn: Bool) {
         if Device.isSimulator() { return }
         let flashlight: AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         if flashlight.isTorchAvailable && flashlight.isTorchModeSupported(.on) {
@@ -32,7 +32,7 @@ struct Device {
         }
     }
     
-    static func isSimulator() -> Bool {
+    public static func isSimulator() -> Bool {
         #if arch(i386) || arch(x86_64)
             return true
         #else

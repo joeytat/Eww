@@ -1,6 +1,6 @@
 //
 //  UIViewController+Extension.swift
-//  AlphaTrion
+//  Eww
 //
 //  Created by Joey on 15/02/2017.
 //  Copyright © 2017 JieJing. All rights reserved.
@@ -11,39 +11,39 @@ import UIKit
 import NVActivityIndicatorView
 import Whisper
 
-enum MessageType {
+public enum MessageType {
     case error, success
 }
 
-extension UIViewController {
-    func startActivity() {
+public extension UIViewController {
+    public func startActivity() {
         let activityData = ActivityData(type: NVActivityIndicatorType.ballPulse, displayTimeThreshold: 200, minimumDisplayTime: 200)
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }
     
-    func stopActivity() {
+    public func stopActivity() {
         DispatchQueue.main.async {
             NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
         }
     }
     
-    func showMessage(message: String, type: MessageType) {
+    public func showMessage(message: String, type: MessageType) {
         let murmur = Murmur(title: message)
         Whisper.show(whistle: murmur, action: .show(2))
     }
     
-    func insertWindowSnaphot() {
+    public func insertWindowSnaphot() {
         let snapshot = UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: false)
         view.insertSubview(snapshot!, at: 0)
     }
 }
 
-extension UIWindow {
-    var visibleViewController: UIViewController? {
+public extension UIWindow {
+    public var visibleViewController: UIViewController? {
         return UIWindow.getVisibleViewControllerFrom(self.rootViewController)
     }
     
-    static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
+    public static func getVisibleViewControllerFrom(_ vc: UIViewController?) -> UIViewController? {
         if let nc = vc as? UINavigationController {
             return UIWindow.getVisibleViewControllerFrom(nc.visibleViewController)
         } else if let tc = vc as? UITabBarController {
