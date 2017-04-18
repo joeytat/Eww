@@ -12,8 +12,8 @@ import UIKit
 public enum Color {
     case primary
     case darkPrimary
-    case accentOrange
-    case accentBlue
+    case accentA
+    case accentB
     case textTitle
     case textHead
     case textBody

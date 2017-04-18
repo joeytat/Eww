@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Eww'
-  s.version          = '0.0.1'
+  s.version          = '0.0.3'
   s.summary          = 'Work Library'
 
   s.description      = <<-DESC
