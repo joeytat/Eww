@@ -114,6 +114,7 @@ public extension UIView {
                 let label = UILabel()
                 label.text = "\(newValue)"
                 label.textColor = UIColor.white
+                label.tag = kBadgeViewTag
                 label.textAlignment = .center
                 label.backgroundColor = UIColor.red
                 label.font = UIFont.systemFont(ofSize: 12)
