@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://coding.net/u/joeytat/p/Eww'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'joeytat' => 'joeyqaq@gmail.com' }
-  s.source           = { :git => 'https://github.com/joeytat/GarageSpecs', :tag => s.version.to_s }
+  s.source           = { :git => 'https://git.coding.net/joeytat/Eww.git', :tag => s.version.to_s }
+
 
   s.ios.deployment_target = '9.0'
 
