@@ -15,10 +15,10 @@ Pod::Spec.new do |s|
   Establish wonderful work
                        DESC
 
-  s.homepage         = 'https://coding.net/u/joeytat/p/Eww'
+  s.homepage         = 'https://coding.net/u/max_li/p/Eww/git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'joeytat' => 'joeyqaq@gmail.com' }
-  s.source           = { :git => 'https://git.coding.net/joeytat/Eww.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://git.coding.net/max_li/Eww.git', :tag => s.version.to_s }
 
 
   s.ios.deployment_target = '9.0'
