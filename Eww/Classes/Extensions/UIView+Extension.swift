@@ -104,8 +104,8 @@ public extension UIViewLoading where Self : UIView {
 
 // MARK: - Badge
 private let kBadgeViewTag = 2333
-extension UIView {
-    var badgeNumber: Int {
+public extension UIView {
+    public var badgeNumber: Int {
         set {
             if let label = viewWithTag(kBadgeViewTag) as? UILabel {
                 label.text = "\(newValue)"

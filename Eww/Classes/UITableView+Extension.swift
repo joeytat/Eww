@@ -11,19 +11,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-enum TableLoadingType {
+public enum TableLoadingType {
     case refresh
     case next
     case none
 }
 
-extension UITableView {
+public extension UITableView {
     
-    func isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
+    public func isNearBottomEdge(edgeOffset: CGFloat = 20.0) -> Bool {
         return self.contentOffset.y + self.frame.size.height + edgeOffset > self.contentSize.height
     }
     
-    var rowCount: Int {
+    public var rowCount: Int {
         get {
             let sectionCount = numberOfSections
             let rowCount = Array(repeating: 0, count: sectionCount).reduce(0) { acc, nextSectionIndex in
@@ -33,7 +33,7 @@ extension UITableView {
         }
     }
     
-    var loadNextPageTrigger: Observable<Int> {
+    public var loadNextPageTrigger: Observable<Int> {
         get {
             let tableView = self
             

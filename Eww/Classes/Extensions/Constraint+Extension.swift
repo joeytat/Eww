@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public extension NSLayoutConstraint {
-    @IBInspectable var usePixels: Bool {
+    @IBInspectable public var usePixels: Bool {
         get {
             return false // default Value
         }
