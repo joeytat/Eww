@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Eww'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'Work Library'
 
   s.description      = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://coding.net/u/joeytat/p/Eww'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'joeytat' => 'joeyqaq@gmail.com' }
-  s.source           = { :git => 'https://git.coding.net/joeytat/Eww.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/joeytat/GarageSpecs', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
@@ -43,5 +43,6 @@ Pod::Spec.new do |s|
   s.dependency 'DGCollectionViewLeftAlignFlowLayout', '~> 1.0.1'
   s.dependency 'BBBadgeBarButtonItem', '~> 1.2'
   s.dependency 'NVActivityIndicatorView', '~> 3.6.0'
+  s.dependency 'BSImagePicker', '~> 2.6.0'
 
 end

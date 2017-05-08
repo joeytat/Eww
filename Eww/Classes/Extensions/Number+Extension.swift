@@ -17,3 +17,14 @@ public extension Int {
         return self * 100
     }
 }
+
+public extension Float {
+    public var priceFormat: String {
+        return String(format: "¥ %.2f", self)
+    }
+    
+    public func roundTo(places:Int) -> Float {
+        let divisor = pow(10.0, Float(places))
+        return (self * divisor).rounded() / divisor
+    }
+}

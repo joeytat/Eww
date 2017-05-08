@@ -49,4 +49,8 @@ public extension String {
         let string = NSString(string: self)
         return string.size(attributes: [NSFontAttributeName : font]).width
     }
+    
+    public func trim() -> String {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
 }

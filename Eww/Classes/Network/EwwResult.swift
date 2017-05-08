@@ -8,12 +8,12 @@
 
 import Foundation
 
-public enum ATResult<T> {
+public enum EwwResult<T> {
     case success(T)
     case failed(String)
 }
 
-public extension ATResult {
+public extension EwwResult {
     public var isValid: Bool {
         get{
             switch self {

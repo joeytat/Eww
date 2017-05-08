@@ -27,8 +27,13 @@ public extension UIViewController {
         }
     }
     
-    public func showMessage(message: String, type: MessageType) {
-        let murmur = Murmur(title: message)
+    public func showMessage(message: String,
+                            type: MessageType,
+                            errorColor: UIColor = UIColor(hue:0.01, saturation:0.80, brightness:1.00, alpha:1.00),
+                            successColor: UIColor = UIColor(hue:0.28, saturation:0.59, brightness:0.71, alpha:1.00)
+        ) {
+        let backgroundColor = (type == .error) ? errorColor : successColor
+        let murmur = Murmur(title: message, backgroundColor: backgroundColor, titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 15), action: nil)
         Whisper.show(whistle: murmur, action: .show(2))
     }
     
