@@ -17,8 +17,10 @@ public enum MessageType {
 
 public extension UIViewController {
     public func startActivity() {
-        let activityData = ActivityData(type: NVActivityIndicatorType.ballPulse, displayTimeThreshold: 200, minimumDisplayTime: 200)
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        DispatchQueue.main.async {
+            let activityData = ActivityData(type: NVActivityIndicatorType.ballPulse, displayTimeThreshold: 200, minimumDisplayTime: 200)
+            NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+        }
     }
     
     public func stopActivity() {
