@@ -12,12 +12,13 @@ import BSImagePicker
 import RxSwift
 
 public extension UIViewController {
-    public func displayImagePicker(maxImage: Int) -> Observable<[PHAsset]> {
+    public func displayImagePicker(maxImage: Int, takePhotos: Bool = false) -> Observable<[PHAsset]> {
         return Observable<[PHAsset]>.create {[weak self] observable in
             let vc = BSImagePickerViewController()
             vc.maxNumberOfSelections = maxImage
             vc.cancelButton.tintColor = self?.navigationController?.navigationBar.tintColor
             vc.doneButton.tintColor = self?.navigationController?.navigationBar.tintColor
+            vc.takePhotos = takePhotos
             self?.bs_presentImagePickerController(
                 vc,
                 animated: true,
