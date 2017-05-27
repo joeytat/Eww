@@ -16,8 +16,14 @@ public extension UIViewController {
         return Observable<[PHAsset]>.create {[weak self] observable in
             let vc = BSImagePickerViewController()
             vc.maxNumberOfSelections = maxImage
-            vc.cancelButton.tintColor = self?.navigationController?.navigationBar.tintColor
-            vc.doneButton.tintColor = self?.navigationController?.navigationBar.tintColor
+            
+            if let color = self?.navigationController?.navigationBar.tintColor {
+                vc.cancelButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.normal)
+                vc.cancelButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.highlighted)
+            } else {
+                vc.cancelButton.tintColor = self?.navigationController?.navigationBar.tintColor
+                vc.doneButton.tintColor = self?.navigationController?.navigationBar.tintColor
+            }
             vc.takePhotos = takePhotos
             self?.bs_presentImagePickerController(
                 vc,
