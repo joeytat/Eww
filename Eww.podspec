@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Eww'
-  s.version          = '0.0.7'
+  s.version          = '0.0.8'
   s.summary          = 'Work Library'
 
   s.description      = <<-DESC
@@ -43,7 +43,6 @@ Pod::Spec.new do |s|
   s.dependency 'Hero', '~> 0.3.6'
   s.dependency 'DGCollectionViewLeftAlignFlowLayout', '~> 1.0.1'
   s.dependency 'BBBadgeBarButtonItem', '~> 1.2'
-  s.dependency 'NVActivityIndicatorView', '~> 3.6.0'
   s.dependency 'BSImagePicker', '~> 2.6.0'
   s.dependency 'ObjectMapper', '2.2.6'
 
