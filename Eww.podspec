@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Eww'
-  s.version          = '0.0.6'
+  s.version          = '0.0.7'
   s.summary          = 'Work Library'
 
   s.description      = <<-DESC
@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
   s.dependency 'RxSwift', '~> 3.4.0'
   s.dependency 'RxCocoa', '~> 3.2.0'
   s.dependency 'RxGesture', '~> 1.0.0'
-  s.dependency 'Moya-ObjectMapper/RxSwift', '~> 2.3.1'
-  s.dependency 'Moya', '~> 8.0.3'
+  s.dependency 'Moya-ObjectMapper/RxSwift', '~> 2.3'
+  s.dependency 'Moya', '~> 8.0.4'
   s.dependency 'SnapKit', '~> 3.2.0'
   s.dependency 'RxOptional', '~> 3.1.3'
   s.dependency 'IQKeyboardManagerSwift', '~> 4.0.9'
@@ -45,5 +45,7 @@ Pod::Spec.new do |s|
   s.dependency 'BBBadgeBarButtonItem', '~> 1.2'
   s.dependency 'NVActivityIndicatorView', '~> 3.6.0'
   s.dependency 'BSImagePicker', '~> 2.6.0'
+  s.dependency 'ObjectMapper', '2.2.6'
+
 
 end
