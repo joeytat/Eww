@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import NVActivityIndicatorView
 import Whisper
 
 public enum MessageType {
@@ -16,19 +15,6 @@ public enum MessageType {
 }
 
 public extension UIViewController {
-    public func startActivity() {
-        DispatchQueue.main.async {
-            let activityData = ActivityData(type: NVActivityIndicatorType.ballPulse, displayTimeThreshold: 200, minimumDisplayTime: 200)
-            NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        }
-    }
-    
-    public func stopActivity() {
-        DispatchQueue.main.async {
-            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-        }
-    }
-    
     public func showMessage(message: String,
                             type: MessageType,
                             errorColor: UIColor = UIColor(hue:0.01, saturation:0.80, brightness:1.00, alpha:1.00),
