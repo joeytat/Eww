@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
   s.dependency 'DGCollectionViewLeftAlignFlowLayout', '~> 1.0.1'
   s.dependency 'BBBadgeBarButtonItem', '~> 1.2'
   s.dependency 'BSImagePicker', '~> 2.6.0'
-  s.dependency 'ObjectMapper', '2.2.6'
+  s.dependency 'ObjectMapper', '~> 2.2.6'
 
 
 end
