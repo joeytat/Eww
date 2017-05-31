@@ -12,11 +12,12 @@ import BSImagePicker
 import RxSwift
 
 public extension UIViewController {
-    public func displayImagePicker(settings: BSImagePickerSettings) -> Observable<[PHAsset]> {
+    public func displayImagePicker(maxSelections: Int, takePhotos: Bool = false) -> Observable<[PHAsset]> {
         return Observable<[PHAsset]>.create {[weak self] observable in
             let vc = BSImagePickerViewController()
             
-            vc.settings = settings
+            vc.maxNumberOfSelections = maxSelections
+            vc.takePhotos = takePhotos
             
             if let color = self?.navigationController?.navigationBar.tintColor {
                 vc.cancelButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.normal)
