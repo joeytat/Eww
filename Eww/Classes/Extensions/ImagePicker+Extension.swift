@@ -21,6 +21,8 @@ public extension UIViewController {
             
             if let color = self?.navigationController?.navigationBar.tintColor {
                 vc.cancelButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.normal)
+                vc.cancelButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.highlighted)
+                vc.doneButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.normal)
                 vc.doneButton.setTitleTextAttributes([NSForegroundColorAttributeName : color], for: UIControlState.highlighted)
             } else {
                 vc.cancelButton.tintColor = self?.navigationController?.navigationBar.tintColor
