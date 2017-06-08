@@ -45,7 +45,7 @@ Pod::Spec.new do |s|
   s.dependency 'BBBadgeBarButtonItem', '~> 1.2'
   s.dependency 'BSImagePicker', '~> 2.6.0'
   s.dependency 'ObjectMapper', '~> 2.2.6'
-  s.dependency 'NSObject+Rx', '~> 2.0.0'
+  s.dependency 'NSObject+Rx', '~> 2.3.0'
 
 
 end
