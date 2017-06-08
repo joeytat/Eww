@@ -16,7 +16,7 @@ private var targetName: String {
 
 public class CustomPhotoAlbum {
     static let albumName = targetName
-    static let sharedInstance = CustomPhotoAlbum()
+    public static let sharedInstance = CustomPhotoAlbum()
     
     public var assetCollection: PHAssetCollection!
     
