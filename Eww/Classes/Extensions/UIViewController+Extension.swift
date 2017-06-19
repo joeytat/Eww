@@ -21,8 +21,12 @@ public extension UIViewController {
                             successColor: UIColor = UIColor(hue:0.28, saturation:0.59, brightness:0.71, alpha:1.00)
         ) {
         let backgroundColor = (type == .error) ? errorColor : successColor
-        let murmur = Murmur(title: message, backgroundColor: backgroundColor, titleColor: UIColor.white, font: UIFont.systemFont(ofSize: 12), action: nil)
-        Whisper.show(whistle: murmur, action: .show(2))
+        let msg = Message(title: message, textColor: UIColor.white, backgroundColor: backgroundColor, images: nil)
+        if let vc = UIApplication.shared.keyWindow?.visibleViewController, let nav = vc.navigationController {
+            Whisper.show(whisper: msg, to: nav, action: .show)
+        } else if let nav = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+            Whisper.show(whisper: msg, to: nav, action: .show)
+        }
     }
     
     public func insertWindowSnaphot() {
