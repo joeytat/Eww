@@ -35,7 +35,6 @@ Pod::Spec.new do |s|
   s.dependency 'RxOptional', '~> 3.1.3'
   s.dependency 'IQKeyboardManagerSwift', '~> 4.0.9'
   s.dependency 'KeychainAccess', '~> 3.0.2'
-  s.dependency 'Whisper', '~> 4.0.0'
   s.dependency 'KMNavigationBarTransition', '~> 1.0.0'
   s.dependency 'VisualEffectView', '~> 2.0.6'
   s.dependency 'Kingfisher', '~> 3.6.2'
@@ -46,6 +45,6 @@ Pod::Spec.new do |s|
   s.dependency 'BSImagePicker', '~> 2.6.0'
   s.dependency 'ObjectMapper', '~> 2.2.6'
   s.dependency 'NSObject+Rx', '~> 2.3.0'
-
+  s.dependency 'SwiftyDrop', '~> 3.0.3'
 
 end

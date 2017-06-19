@@ -8,25 +8,37 @@
 
 import Foundation
 import UIKit
-import Whisper
+import SwiftyDrop
 
-public enum MessageType {
-    case error, success
+
+import SwiftyDrop
+
+public enum MessageType: DropStatable {
+    case success
+    case error
+    
+    public var backgroundColor: UIColor? {
+        switch self {
+        case .success:
+            return UIColor(hue:0.27, saturation:0.51, brightness:0.69, alpha:1.00)
+        case .error:
+            return UIColor(hue:0.99, saturation:0.66, brightness:1.00, alpha:1.00)
+        }
+    }
+    public var font: UIFont? {
+        return UIFont.systemFont(ofSize: 15)
+    }
+    public var textColor: UIColor? {
+        return UIColor.white
+    }
+    public var blurEffect: UIBlurEffect? {
+        return nil
+    }
 }
 
 public extension UIViewController {
-    public func showMessage(message: String,
-                            type: MessageType,
-                            errorColor: UIColor = UIColor(hue:0.01, saturation:0.80, brightness:1.00, alpha:1.00),
-                            successColor: UIColor = UIColor(hue:0.28, saturation:0.59, brightness:0.71, alpha:1.00)
-        ) {
-        let backgroundColor = (type == .error) ? errorColor : successColor
-        let msg = Message(title: message, textColor: UIColor.white, backgroundColor: backgroundColor, images: nil)
-        if let vc = UIApplication.shared.keyWindow?.visibleViewController, let nav = vc.navigationController {
-            Whisper.show(whisper: msg, to: nav, action: .show)
-        } else if let nav = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
-            Whisper.show(whisper: msg, to: nav, action: .show)
-        }
+    public func showMessage(message: String, type: MessageType) {
+        Drop.down(message, state: type)
     }
     
     public func insertWindowSnaphot() {
