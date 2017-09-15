@@ -40,5 +40,5 @@ public struct Device {
         #endif
     }
     
-    public let isPad = UIDevice.current.userInterfaceIdiom == .pad
+    public static let isPad = UIDevice.current.userInterfaceIdiom == .pad
 }
