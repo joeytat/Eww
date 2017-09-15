@@ -28,3 +28,20 @@ public extension Float {
         return (self * divisor).rounded() / divisor
     }
 }
+
+
+
+public extension Double {
+    public func format(_ f: Double) -> String {
+        return String(format: "%\(f)f", self)
+    }
+    
+    public func autoFormat() -> String {
+        let ceilDouble = ceil(self)
+        if ceilDouble == self {
+            return self.format(0)
+        }
+        
+        return self.format(0.2)
+    }
+}

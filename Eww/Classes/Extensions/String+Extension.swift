@@ -54,3 +54,86 @@ public extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }
+
+
+// MARK: - Convert
+
+public extension String {
+    public func toDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: self)
+    }
+    
+    public func toFloat() -> Float {
+        guard let value = Float(self) else { return 0.0 }
+        return value
+    }
+    
+    public func toDouble(places: Int = 2) -> Double? {
+        guard let double = Double(self) else { return nil }
+        let formattedStr = String(format: "%.\(places)f", double)
+        guard let value = Double(formattedStr) else { return nil }
+        return value
+    }
+    
+    
+    public subscript (r: Range<Int>) -> String {
+        get {
+            let startIndex = self.characters.index(self.startIndex, offsetBy: r.lowerBound)
+            let endIndex = self.characters.index(self.startIndex, offsetBy: r.upperBound)
+            
+            return self[Range(startIndex..<endIndex)]
+        }
+    }
+    
+    public func countingTitle(for forValue: String?) -> String {
+        if let value = forValue, !value.isEmpty {
+            return "\(self)<red>( \(value.characters.count) 位)</red>"
+        } else {
+            return self
+        }
+    }
+    
+    public func last(count: Int) -> String {
+        let index = self.index(self.endIndex, offsetBy: -count)
+        return substring(from: index)
+    }
+    
+    public func first(count: Int) -> String {
+        let index = self.index(self.endIndex, offsetBy: count)
+        return substring(to: index)
+    }
+}
+
+
+// MARK: - Validataion
+
+public extension String {
+    
+    public func matches(for regex: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let nsString = self as NSString
+            let results = regex.matches(in: self, range: NSRange(location: 0, length: nsString.length))
+            return results.map { nsString.substring(with: $0.range)}
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    public func isPhoneNumber(strict: Bool = false) -> Bool {
+        // TODO: - 补全严格校验
+        let match = matches(for: "^(13[0-9]|14[579]|15[0-3,5-9]|17[0135678]|18[0-9])\\d{0,8}$")
+        return match.count > 0
+    }
+    
+    public func isIdCard() -> Bool {
+        return self.matches(for: "^([1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}([0-9]|X))$").count > 0
+    }
+    
+    public func isBankId() -> Bool {
+        return self.matches(for: "^(\\d{16}|\\d{17}|\\d{18}|\\d{19})$").count > 0
+    }
+}

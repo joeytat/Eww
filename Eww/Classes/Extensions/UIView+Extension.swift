@@ -11,6 +11,17 @@ import UIKit
 import SnapKit
 
 public extension UIView {
+    @IBInspectable public var patternImage: UIImage? {
+        set {
+            guard let image = newValue else { return }
+            self.backgroundColor = UIColor(patternImage: image)
+        }
+        get {
+            guard let backgroundColor = self.backgroundColor else { return nil }
+            return UIImage.from(color: backgroundColor)
+        }
+    }
+    
     @IBInspectable public var cornerRadius: CGFloat {
         set {
             layer.masksToBounds = true
@@ -135,5 +146,48 @@ public extension UIView {
             }
             return Int(label.text ?? "0") ?? 0
         }
+    }
+}
+
+// MARK: - Tap gesture
+public extension UIView {
+    @IBInspectable public var dismissOnTap: Bool {
+        set {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UIView.dismiss))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(tapGesture)
+        }
+        get {
+            assert(false, "Do not use this getter")
+            return false
+        }
+    }
+    
+    @IBInspectable public var popOnTap: Bool {
+        set {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(UIView.pop))
+            self.isUserInteractionEnabled = true
+            self.addGestureRecognizer(tapGesture)
+        }
+        get {
+            assert(false, "Do not use this getter")
+            return false
+        }
+    }
+    
+    @objc private func dismiss() {
+        guard let currentVC = UIApplication.shared.keyWindow?.visibleViewController else { return }
+        if let tabBar = currentVC as? UITabBarController {
+            let nav = tabBar.selectedViewController as! UINavigationController
+            nav.dismiss(animated: true, completion: nil)
+        } else {
+            currentVC.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @objc private func pop() {
+        guard let currentVC = UIApplication.shared.keyWindow?.visibleViewController else { return }
+        guard let nav = currentVC.navigationController else { return }
+        nav.popViewController(animated: true)
     }
 }

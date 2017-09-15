@@ -39,4 +39,6 @@ public struct Device {
             return false
         #endif
     }
+    
+    public let isPad = UIDevice.current.userInterfaceIdiom == .pad
 }

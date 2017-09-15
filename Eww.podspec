@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Eww'
-  s.version          = '0.0.8'
+  s.version          = '0.0.9'
   s.summary          = 'Work Library'
 
   s.description      = <<-DESC
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.dependency 'RxSwift', '~> 3.4.0'
   s.dependency 'RxCocoa', '~> 3.2.0'
   s.dependency 'RxGesture', '~> 1.0.0'
-  s.dependency 'Moya-ObjectMapper/RxSwift', '~> 2.3'
+  s.dependency 'Moya-ObjectMapper', '~> 2.3'
   s.dependency 'Moya', '~> 8.0.4'
   s.dependency 'SnapKit', '~> 3.2.0'
   s.dependency 'RxOptional', '~> 3.1.3'
