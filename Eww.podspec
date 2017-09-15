@@ -27,7 +27,7 @@ s.source_files = 'Eww/Classes/**/*'
 
 s.frameworks = 'UIKit'
 s.dependency 'RxSwift', '~> 3.6.1'
-s.dependency 'RxCocoa', '~> 3.2.0'
+s.dependency 'RxCocoa', '~> 3.6.1'
 s.dependency 'RxGesture', '~> 1.0.0'
 s.dependency 'Moya-ObjectMapper', '~> 2.4.2'
 s.dependency 'Moya', '~> 9.0.0'
