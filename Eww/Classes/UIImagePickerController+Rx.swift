@@ -27,12 +27,12 @@ public class RxUIImagePickerControllerDelegateProxy: DelegateProxy, DelegateProx
 }
 
 public extension Reactive where Base: UIImagePickerController {
-    public var delegate: DelegateProxy {
+    public var rx_delegate: DelegateProxy {
         return RxUIImagePickerControllerDelegateProxy.proxyForObject(base)
     }
     
     public var didFinishPickingMediaWithInfo: Observable<[String : Any]> {
-        return delegate
+        return rx_delegate
             .methodInvoked(#selector(UIImagePickerControllerDelegate.imagePickerController(_:didFinishPickingMediaWithInfo:)))
             .map { parameters in
                 // 0 is UIImagePickerController
@@ -41,7 +41,7 @@ public extension Reactive where Base: UIImagePickerController {
     }
     
     public var didCancel: Observable<Void> {
-        return delegate
+        return rx_delegate
             .methodInvoked(#selector(UIImagePickerControllerDelegate.imagePickerControllerDidCancel(_:)))
             .map { parameters in
                 return
