@@ -89,7 +89,7 @@ public extension String {
     
     public func countingTitle(for forValue: String?) -> String {
         if let value = forValue, !value.isEmpty {
-            return "\(self)<red>( \(value.characters.count) 位)</red>"
+            return "\(self)<red><small>( \(value.characters.count) 位)</small></red>"
         } else {
             return self
         }
